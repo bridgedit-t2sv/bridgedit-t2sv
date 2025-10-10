@@ -1,0 +1,1148 @@
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>BridgeDiT</title>
+    <meta name="description" content="Taming Text-to-Sounding Video Generation via Advanced Modality Condition and Interaction">
+    <meta name="keywords" content="Sounding Video Generation, Multi-Modal">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#EDE8F5">
+    <meta property="og:image" content="">
+    <link rel="stylesheet" href="./assets/index.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css'>
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-stretch: 100%;
+            font-display: block;
+            font-weight: 300 700;
+            src: url('./assets/roboto.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'DancingScript';
+          src: url('./assets/DancingScript-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+          font-family: 'Caveat';
+          src: url('./assets/Caveat-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+          font-family: 'Alegreya';
+          src: url('./assets/Alegreya-Regular.ttf') format('truetype');
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        video {
+            background-color: #000000;
+            aspect-ratio: 16 / 9;
+        }
+
+        section.portrait video {
+            background-color: #000000;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        section.multi_ip video {
+            background-color: #000000;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        section.portrait .prompt-wrap.full-screen-wrap video {
+            object-fit: cover;
+        }
+
+        section.portrait .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        section.portrait2 .flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        section.portrait .flex > div {
+            flex: 0 0 calc((100% - 5 * 10px) / 6);
+        }
+        section.portrait2 .flex > div {
+            flex: 0 0 calc((100% - 1 * 10px) / 2);
+        }
+
+        section.portrait .prompt {
+            font-size: 10px;
+        }
+        section.portrait2 .prompt {
+            font-size: 12px;
+        }
+
+        section.portrait .flex-row {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section.portrait2 .flex-row {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            section.portrait .flex > div {
+                flex: 0 0 calc((100% - 1 * 10px) / 2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section.portrait2 .flex > div {
+                flex: 0 0 calc((100% - 0 * 10px) / 1);
+            }
+        }
+
+        /* Ensure prompt adjusts for portrait mode */
+        .portrait .prompt {
+            position: absolute;  /* Allow positioning relative to the container */
+            bottom: 5%;          /* Adjust this to control the vertical placement of the prompt */
+            left: 50%;           /* Center horizontally */
+            transform: translateX(-50%); /* Offset by 50% of its width to truly center */
+            max-width: 80%;
+            text-align: center;  /* Center the text inside the prompt */
+            color: white;        /* Optional, if you want the text to stand out */
+            font-size: 1.2em;    /* Optional, adjust the text size */
+        }
+
+        .portrait2 .prompt{
+            position: absolute;  /* Allow positioning relative to the container */
+            bottom: 5%;          /* Adjust this to control the vertical placement of the prompt */
+            left: 50%;           /* Center horizontally */
+            transform: translateX(-50%); /* Offset by 50% of its width to truly center */
+            max-width: 80%;
+            text-align: center;  /* Center the text inside the prompt */
+            color: white;        /* Optional, if you want the text to stand out */
+            font-size: 1.2em;    /* Optional, adjust the text size */
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Roboto", sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        #intro {
+            padding: 100px 0 0px 0;
+            justify-content: center; /* Center content vertically */
+            text-align: center; /* Center text alignment */
+            /* background-image: url('./assets/background.png'); */
+            background-size: cover; /* Cover the entire container */
+            background-position: center; /* Center the background image */
+            color: #ffffff; /* Ensure text color is readable */
+            position: relative; /* 新增：作为视频背景的定位容器 */
+            overflow: hidden; /* 新增：隐藏超出容器的视频部分 */
+            min-height: 100vh; /* 新增：确保有足够高度显示内容 */
+        }
+
+        /* 新增：视频背景样式 */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* 置于内容下方 */
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持比例填充容器 */
+            opacity: 0.3; /* 适当降低透明度，增强文字可读性 */
+        }
+        
+        #intro .content {
+            position: relative;
+            z-index: 1; /* 确保内容显示在视频上方 */
+        }
+
+        #intro h1 {
+            font-size: 70px;
+            font-weight: 300;
+            margin: 20px 0;
+        } 
+
+        #intro h2 {
+            margin: 20px 0 40px 0;
+            font-weight: 300;
+            color: #ffffff
+        }
+
+        #intro h2 strong {
+            color: #fff;
+        }
+
+        .authors {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 25px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .author-block {
+            display: inline-block;
+            margin: 0 10px 0 10px;
+        }
+
+        .author-block a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .author-block a:hover {
+            color: #fff;
+        }
+
+        .author-affiliation {
+            font-size: 16px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 60px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .author-affiliation .author-block {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        section {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 0 10%;
+        }
+
+        .button {
+            background-color: #ccc;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+            text-decoration: none;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #fff;
+        }
+
+        .bibtex-section {
+            background-color: #111;
+            padding: 40px 10%;
+            text-align: center;
+            margin-top: 60px;
+            color: #ccc;
+        }
+
+        .bibtex-section h3 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .bibtex-code {
+            background-color: #222;
+            color: #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            display: inline-block;
+            font-family: monospace;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+
+        section {
+            margin-top: 80px;
+        }
+        section:first-of-type {
+            margin-top: 0;
+        }
+
+        .title {
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            padding: 20px 10%;
+            font-size: 20px;
+            font-weight: 600;
+            z-index: 1000;
+            min-height: 60px;
+            box-sizing: border-box;
+        }
+
+        .description {
+            padding: 0 10% 20px 10%;
+            color: #999;
+            line-height: 25px;
+            font-weight: 300;
+        }
+        .description-strong {
+            color: #ffffffa8;
+            font-weight: 500;
+        }
+
+        .prompt-strong {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .flex-row {
+            display: flex;
+            column-gap: 5px;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 0 5px 5px 5px;
+            
+        }
+
+        .flex-row > div {
+            flex-grow: 1;
+            flex-basis: 0;
+            position: relative;
+        }
+
+        .flex > div {
+            /* width: calc(100% / 3 - 5px * 2 / 3); */
+            width: calc(100% / 4 - 5px * 3 / 4);
+            margin-top: 2.5px;
+            margin-bottom: 2.5px;
+            position: relative;
+        }
+
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+
+        .prompt-wrap {
+            position: relative;
+        }
+
+        .flex-2 {
+            justify-content: center;
+            column-gap: 5px;
+        }
+        .flex-2 > div {
+            width: calc(100% / 2 - 5px / 2);
+            min-width: calc(100% / 3 - 5px * 2 / 3);
+            max-width: calc(100vh - 200px);
+        }
+
+        video, img {
+            width: 100%;
+        }
+
+        .loading-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .loading-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .loading-icon {
+            font-size: 48px;
+        }
+
+        .prompt {
+            max-width: calc(100% - 20px);
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            box-sizing: border-box;
+        }
+
+        .flex-very-compact .full-screen-button {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            border-radius: 0;
+        }
+
+        .chinese {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: bold;
+            color: #d18585;
+            font-size: 1.1em;
+        }
+
+        @media (hover: hover) {
+            .prompt-wrap:hover .prompt,
+            .full-screen-wrap:hover .full-screen-button {
+                opacity: 1;
+                pointer-events: all;
+            }
+            #contributors a:hover {
+                background-color: #222;
+            }
+        }
+
+        @media (hover: none) {
+            #contributors a {
+                pointer-events: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .flex-dynamic > div {
+                width: calc(100% / 2 - 5px / 2);
+            }
+        }
+
+        @media (max-width: 640px) {
+            #intro h1 {
+                font-size: 50px;
+            }
+            #intro h2 {
+                font-size: 20px;
+            }
+            .ruler {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 512px) {
+            .flex-dynamic > div,
+            .flex-dynamic-1 > div {
+                width: 100%;
+            }
+
+            .content {
+                padding: 0 12px;
+            }
+
+            .description {
+                padding: 0 12px 20px 12px;
+            }
+
+            .title {
+                padding: 20px 12px;
+            }
+
+            .ruler-tight {
+                font-size: 6px;
+                column-gap: 0;
+            }
+
+            .title-long {
+                font-size: 16px;
+            }
+
+        }
+
+        .margin-top {
+            margin-top: 50px;
+        }
+
+        .ruler {
+            text-align: center;
+            position: sticky;
+            top: 60px;
+            z-index: 999;
+            background-color: #000;
+            color: #999;
+            padding: 5px 0;
+        }
+
+        .ruler > div {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .selected {
+            box-shadow: 0 0 0 5px #fff;
+        }
+
+        #title-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #title-icon {
+          height: 8em;
+          width: auto;
+          margin-right: 0px;
+          vertical-align: middle;
+        }
+
+        .title-art {
+          font-family: 'DancingScript', sans-serif;
+        }
+
+        .title-art2 {
+          font-family: 'Caveat', sans-serif;
+        }
+
+        .title-art3 {
+          font-family: 'Alegreya', sans-serif;
+        }
+
+
+        header {
+            position: relative;
+            background: none;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            width: 100%;
+            /* Maintain 16:9 aspect ratio for 1080p video */
+            aspect-ratio: 16 / 9;
+            min-height: 340px;
+        }
+        @supports not (aspect-ratio: 16/9) {
+            header {
+                height: 56.25vw; /* fallback for browsers without aspect-ratio */
+                min-height: 340px;
+                max-height: 600px;
+            }
+        }
+        .header-bg-video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 1;
+            pointer-events: none;
+        }
+        .header-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        header > *:not(.header-bg-video):not(.header-overlay) {
+            position: relative;
+            z-index: 3;
+        }
+        .header-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        h2 {
+            font-size: 2.5em;
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        #video-wrapper {
+          border-radius: 50px;
+          max-width: 720px;
+          padding-bottom: 40%; 
+          margin: 0 auto;
+          background: #000000;
+        }
+
+        .ethics-section {
+            padding: 100px 10%;
+            text-align: center;
+            margin-top: 60px;
+            color: #ccc;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .acknowledgements-section {
+            padding: 100px 10%;
+            text-align: center;
+            margin-top: 60px;
+            color: #ccc;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width: 100%; 
+            gap: 5px;
+        }
+        .video-container video {
+            width: 100%;
+            max-width: 1200px;
+            max-height: 750px;
+            height: auto;
+            display: block; /* 移除视频下方的默认空隙 */
+        }
+        .units-rule {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: center;
+            align-items: center;
+            column-gap: 0.75rem;
+        }
+        .units-rule i {
+            display: block;
+            width: 1px;
+            height: 1em;
+            background: currentColor;
+            opacity: 0.25;             /* 细且淡的竖线 */
+        }
+    </style>
+</head>
+<body>
+    <section id="intro">
+        <div class="video-background">
+            <video autoplay playsinline muted loop>
+                <source src="./assets/background/demo.mp4" type="video/mp4">
+                Demo Video
+            </video>
+        </div>
+        <div class="content">
+            <div id="title-container">
+              <!-- <img id="title-icon"  alt="Icon"> -->
+              <h1><strong> </strong></h1>
+            </div>
+            <h1><strong><br></br>Taming Text-to-Sounding Video Generation <br> via Advanced Modality Condition and Interaction</strong></h1>
+            <div class="authors">
+                <span class="author-block" style="font-weight: bold;">Anonymous Authors</span>
+                <!-- <span class="author-block"><a href="https://tianxiangma.github.io/">Tianxiang Ma</a><sup>*</sup></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=X21Fz-EAAAAJ">Jiawei Liu</a></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=ac5Se6QAAAAJ">Bingchuan Li</a><sup>&dagger;</sup></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=ow1jGJkAAAAJ">Zhuowei Chen</a></span>
+                <span class="author-block"><a href="https://liulj13.github.io">Lijie Liu</a></span>
+                <span class="author-block"><a href="https://scholar.google.com.hk/citations?user=KMrFk2MAAAAJ">Xu He</a></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=wqA7EIoAAAAJ">Gen Li</a></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=9rWWCgUAAAAJ">Qian He</a></span>
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=7Xl6KdkAAAAJ&">Zhiyong Wu</a><sup>&sect;</sup></span> -->
+            </div>
+
+            <!-- Added the affiliations section -->
+            <div class="author-affiliation">
+                <!-- <p>
+                    <span>
+                        <sup>*</sup> Equal contribution, 
+                        <sup>&dagger;</sup> Project lead, 
+                        <sup>&sect;</sup> Corresponding author
+                    </span>
+                </p> -->
+                <p class="units-rule">
+                    <span>Anonymous Affiliations</span>
+                    <!-- <i aria-hidden="true"></i>
+                    <span>Intelligent Creation Team, Bytedance</span> -->
+                </p>
+            </div>
+
+            <a class="button" href="https://bridgedit-t2sv.github.io/" target="_blank" rel="noopener noreferrer">
+               Research Paper (Coming Soon)
+            </a>
+            <a class="button" href="https://bridgedit-t2sv.github.io/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-github" style="font-size:17px"></i>
+                Code (Coming Soon)
+            </a>
+            <a class="button" href="https://bridgedit-t2sv.github.io/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-github" style="font-size:17px"></i>
+                Models (Coming Soon)
+            </a>
+        </div>
+    </section>
+
+    <div class="container" style="margin-top: 50px; ">
+        <p class="title-art1" style="font-family: 'Alegreya';font-size: 1.6em;text-align: center;">Abstract</p>
+        <p class="description" style="font-size: 1.0em;text-align: left;">This study focuses on a challenging yet promising task, <strong class="description-strong">Text-to-Sounding-Video (T2SV) generation</strong>, which aims to generate a video with synchronized audio from text conditions, meanwhile ensuring both modalities are aligned with text. Despite progress in joint audio-video training, two critical challenges still remain unaddressed: (1) a single, shared text caption where the text for video is equal to the text for audio often creates modal interference, confusing the pretrained backbones, and (2) the optimal mechanism for cross-modal feature interaction remains unclear. To address these challenges, we first propose <strong class="description-strong">the Hierarchical Visual-Grounded Captioning (HVGC) framework</strong> that generates pairs of disentangled captions, a video caption, and an audio caption, eliminating interference at the conditioning stage. Based on HVGC, we further introduce <strong class="description-strong">BridgeDiT</strong>, a novel dual-tower diffusion transformer, which employs a <strong class="description-strong">Dual CrossAttention (DCA) mechanism</strong> that acts as a robust ``bridge" to enable a symmetric, bidirectional exchange of information, achieving both semantic and temporal synchronization. Extensive experiments on three benchmark datasets, supported by human evaluations, demonstrate that our method achieves state-of-the-art results on most metrics. Comprehensive ablation studies further validate the effectiveness of our contributions, offering key insights for the future T2SV task. All the codes and checkpoints will be publicly released.</p>
+    </div>
+    
+
+    <!-- <div class="video-container">
+        <video controls>
+            <source src="./assets/videos/teaser_title_26M.mp4" type="video/mp4">
+            Faceless Thrones
+        </video>
+    </div> -->
+
+    <section id="video">
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+          Sounding Video Generation Cases Study in the Paper
+        </div>
+        <div class="description">
+            <em><strong>Please turn on the sound for watching. Hover over the video to reveal the video and audio captions.</strong></em>
+        </div>
+        <!-- <div class="flex flex-dynamic"> -->
+        <div class="flex flex-dynamic" style="flex-direction: row; align-items: center; gap: -1px;">
+            <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/1.mp4"></video>
+                <div class="prompt">
+                <strong class="prompt-strong">Video Caption</strong>: In a dimly lit blacksmith workshop illuminated by the dramatic, warm light emanating from the forge, a weathered blacksmith with soot-stained hands stands at his anvil, his face etched with concentration. The atmosphere is thick with anticipation, the air filled with the scent of heated metal and the faint glow reflecting off the walls. The blacksmith, clad in a rugged leather apron, holds a glowing orange piece of iron with tongs, its intense heat casting flickering shadows across the room. He raises a heavy hammer above his head, muscles tensing as he prepares to strike. The hammer descends with force, colliding with the glowing iron and sending a shower of bright orange sparks flying into the air; the metal visibly deforms under the powerful blow. The blacksmith's arm recoils slightly from the impact, and he quickly adjusts his grip on the tongs, turning the iron to shape it further. Each strike is precise, the hammer connecting with the metal in a rhythmic dance of creation. The camera captures this intense moment from a close-up angle, focusing on the intricate details of the hammer's texture and the vibrant hues of the heated iron. The anvil, worn from years of use, bears the marks of countless creations, adding to the scene's authenticity. The visual counterpart of the hammer's resounding impacts is evident in the way the metal bends and reshapes, each deformation a testament to the blacksmith's skill. The entire scene is rendered in a photorealistic, cinematic style, with highly detailed textures, capturing every nuance of this ancient craft. <br>
+                <strong class="prompt-strong">Audio Caption</strong>: The resounding clang of a heavy hammer striking metal echoes through the workshop, each powerful blow punctuated by the sizzle of heated iron and the occasional hiss of sparks.</br>
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/2.mp4"></video>
+                <div class="prompt">
+                <strong class="prompt-strong">Video Caption</strong>: In a bustling subway station at Union Square, the atmosphere is alive with the vibrant energy of urban nightlife, illuminated by the stark white tiles and the soft glow of overhead fluorescent lights. A young man, dressed in a blue patterned shirt and dark shorts, stands as the focal point, his golden saxophone held close as he plays with fervent passion. His cheeks puff rhythmically, his fingers dance deftly across the instrument's keys, and his body sways to the beat, creating a visual counterpart to the music's lively tempo. Behind him, another musician, clad in black, sits with a large metallic drum, his hands moving in a blur as they strike the surface, sending vibrations through the air that ripple like invisible waves. The camera pans smoothly, capturing the dynamic interplay between the musicians and their instruments, emphasizing the physicality of their performance. Passersby weave through the scene, some pausing to listen, their presence adding layers of depth and movement. The walls are adorned with advertisements, one featuring a woman in casual attire, her image static yet contributing to the urban tapestry. The floor beneath the musicians' feet shows signs of wear, hinting at the constant flow of people and the passage of time. The visual style is crisp and photorealistic, with high contrast and sharp details that bring every element into vivid focus, creating a highly detailed, representation of this captivating moment in the heart of the city. <br>
+                <strong class="prompt-strong">Audio Caption</strong>: The rich, soulful notes of a saxophone fill the bustling subway station, blending with metal drum and the ambient hum of the urban environment.</br>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <section id="video">
+      <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+        More Cases
+      </div>
+
+      <div class="description">
+        <em><strong>Please turn on the sound for watching. Hover over the video to reveal the video and audio captions.</strong></em>
+      </div>
+
+      <div class="flex flex-dynamic" style="flex-direction: row; align-items: center; gap: -1px;">
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/NF1lwZ24RYI_000030_000040_6.0_10.0.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a cozy, warmly lit living room, a scruffy, medium-sized dog with a patchwork coat of brown, black, and white fur sits attentively on a patterned rug, its eyes wide and ears perked up as if anticipating something exciting. The dog's mouth opens wide, revealing its pink tongue and teeth, as it appears to bark or vocalize, with its chest expanding and contracting rhythmically. The dog's head moves slightly from side to side, its whiskers twitching with each breath. In the background, a colorful, knitted blanket draped over a beige armchair adds a homely touch, while soft, ambient light casts gentle shadows across the scene. A person's legs, clad in casual pants, are visible in the upper right corner, suggesting the presence of a human companion nearby. The camera remains steady, capturing the dog's expressive face and the subtle vibrations of its vocal cords as it communicates. The dog's tail wags gently, creating small ripples in the air, and its paws shift slightly on the rug, emphasizing its engagement and energy. The overall atmosphere is intimate and inviting, with a photorealistic, high-definition quality that captures every detail of the dog's fur texture and the surrounding environment. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The room is filled with the energetic and rhythmic sound of a dog barking, its vocalizations clear and enthusiastic, punctuated by the subtle rustling of its fur and the gentle thud of its tail wagging on the rug.</br>
+            </div>
+        </div>
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/4ZJrKmDGdA4_000140.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a warmly lit, intimate setting that exudes a cozy, almost nostalgic atmosphere, a young woman with long, wavy brown hair is captured in a close-up shot, her face illuminated by soft, golden light that highlights the gentle contours of her features. She holds a small, intricately wrapped piece of food delicately between her fingers, her eyes focused intently on the object as she brings it closer to her lips. The texture of the wrapper is slightly crinkled, suggesting a crispness that might crackle softly when touched. Her mouth opens slightly, revealing her teeth as she takes a bite, her jaw muscles subtly contracting as she chews. The camera then pans away abruptly, creating a sense of sudden movement, as if the viewer is being pulled back from the intimate moment. The scene shifts to show the woman turning her head, her hair flowing gently with the motion, and her expression shifting from concentration to a more relaxed demeanor. In the background, blurred shapes and soft glows suggest a bustling environment, perhaps a restaurant or craft, where other patrons and objects like glasses and utensils are faintly visible, adding depth to the scene. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The soft, delicate sounds of people sneezing blend into the warm, intimate atmosphere, creating a subtle and cozy soundscape.</br>
+            </div>
+        </div>
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/1MTKUN3uFrs_000440.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a dark, enigmatic night setting, a lone figure emerges from the shadows, illuminated only by the vibrant, flickering glow of two sparklers he holds one in each hand. The atmosphere is charged with a sense of mystery and anticipation, as the high-contrast lighting casts deep shadows across his face, accentuating his focused expression. He wears a casual outfit a dark t-shirt and light-colored pants contrasting sharply with the surrounding darkness. The man begins to move rhythmically, his arms extending outward as he twirls the sparklers in intricate patterns, creating a mesmerizing dance of light. The camera follows his movements closely, capturing the dynamic interplay of light and shadow. As he swings the sparklers, they leave trails of bright, crackling sparks that seem to whisper through the air, their fiery paths momentarily illuminating the tall grasses that surround him. The grasses sway gently, their blades catching the light and creating a shimmering effect as if responding to the energy of the performance. The scene shifts to a close-up of the grass, where the intense heat from the sparklers causes the blades to curl and char, leaving behind a trail of smoke that rises slowly into the night sky. The visual counterpart of the crackling sparks is the rapid, almost violent interaction between the hot embers and the cool night air, producing a dynamic display of light and motion. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The night air is filled with the sharp, explosive sounds of fireworks banging, creating a dynamic and intense soundscape.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/OWuMapsvJ3w_000050.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a serene winter forest blanketed in pristine white snow, a man dressed in a rugged brown jacket over a vibrant red shirt and dark pants stands beside a towering tree, its bark mottled with patches of lichen and moss. The atmosphere is crisp and still, with the soft glow of daylight filtering through the bare branches above, casting long, delicate shadows across the snowy ground. The man approaches the tree with purpose, his breath visible in the cold air as he reaches for a chainsaw hanging at his side. He grips the chainsaw firmly, the engine igniting with a burst of energy as the blade spins rapidly, slicing through the air with a blur of motion. The camera focuses closely on the tree trunk as the man begins to cut, the chainsaw biting deeply into the wood, sawdust flying outward in a fine mist. The tree's bark shudders slightly under the force of the blade, and the man's muscles tense with effort, his face set in concentration. As the chainsaw continues its relentless advance, the tension builds, the tree's fibers straining and groaning under the pressure. The camera captures the intricate details of the cut, the wood splintering and cracking along the path of the blade, until finally, a large section of the trunk separates with a dramatic shift, the weight of the wood causing it to fall away with a powerful thud. The scene is rendered in high-definition clarity, with photorealistic textures and natural lighting that emphasize the raw power and precision of the man's work, creating a vivid and immersive visual experience. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The deep, rumbling sound of a chainsaw fills the crisp, silent air, its blade whirring with intense energy as it cuts through the solid wood, accompanied by the subtle creaking of the tree's fibers under strain and the occasional burst of sawdust flying outward.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/akjqOhO0IM0_000010_000020_3.0_10.0.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a desolate, sunlit canyon with rugged, layered cliffs casting long shadows across the barren ground, a lone figure clad in tactical gear stands poised in a tense atmosphere. The man, wearing a dark jacket, beige pants, and protective ear muffs, holds a precision rifle with a mounted scope, his stance firm and focused. His eyes, partially obscured by the rifle's sight, convey intense concentration as he aims at an unseen target. The camera captures him from a medium shot, slightly angled to emphasize the weapon and his determined expression. As he fires, the rifle recoils sharply against his shoulder, and a burst of white smoke erupts from the barrel, momentarily obscuring his view. The impact of the bullet is implied by the sudden cloud of dust and debris that billows up from the distant target area, scattering fine particles into the air. The sunlight glints off the rifle's metallic components, adding a stark contrast to the earthy tones of the surroundings. The scene is rendered in high-definition, photorealistic detail, with dramatic lighting that highlights the textures of the man's gear and the rough terrain, creating a vivid and immersive visual experience. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The sharp, rapid bursts of machine gun fire echo through the canyon, punctuated by the metallic clicks and the distant rumble of impact.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/74BDV0z_bvw_000030_000040_0.5_9.5.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a cozy, warmly lit room, a young man sits focused and immersed in his craft, his face etched with concentration as he plays the violin. The intimate setting is accentuated by soft, ambient lighting that casts gentle shadows across the wooden furniture and bookshelves in the background, creating a serene and inviting atmosphere. The man, dressed in a crisp white shirt and a neatly tied patterned tie, holds the violin firmly against his shoulder, his left hand delicately pressing down on the strings while his right hand moves rhythmically with the bow. Each stroke of the bow across the strings creates a subtle vibration, the wood of the instrument responding with a slight tremble, as if echoing the music it produces. His fingers dance along the neck of the violin, adjusting their positions with precision, and his mouth subtly shifts as he breathes deeply, his chest rising and falling in sync with the melody. The camera captures this intimate performance from a close-up angle, emphasizing the intricate details of his technique and the emotional intensity of his expression. In the background, a potted plant sways gently, its leaves rustling softly as if moved by an unseen breeze, adding to the tranquil ambiance. The entire scene is rendered in a photorealistic style, with high-definition clarity that highlights every nuanced movement and detail, capturing the essence of this passionate musical moment in vivid, lifelike detail. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The rich, melodic tones of a violin fill the room, the bow gliding smoothly over the strings with a gentle, rhythmic sound. Soft, ambient rustling of leaves adds a subtle, tranquil backdrop to the intimate performance.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/39jhSrtRm70_000079.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a dimly lit, intimate jazz club, the atmosphere is charged with energy and anticipation, illuminated by soft, blue-tinted stage lights that cast dynamic shadows across the performers and their instruments. At the center of the scene, a drummer dressed in a crisp white shirt sits poised behind his drum set, his body language exuding focus and rhythm. His hands move with precision and speed, each strike of the drumsticks creating a visual cascade of motion as they connect with the drums and cymbals. The bass drum, emblazoned with bold red lettering, vibrates intensely with each powerful kick, the pedal mechanism visibly compressing and releasing. The snare drum crackles with energy as the sticks make sharp contact, sending ripples through the drumhead that almost seem audible in their intensity. The cymbals shimmer and vibrate, their surfaces reflecting the stage lights in fleeting glimmers as they clash together, the drummer's wrist movements fluid and controlled. In the background, other musicians contribute to the ensemble, their instruments adding layers of visual texture to the scene. The camera captures the action from a close, slightly elevated angle, emphasizing the drummer's skillful movements and the intricate details of the drum set. The overall visual style is cinematic and highly detailed, with a focus on the dramatic interplay of light and shadow, capturing the raw energy and passion of live jazz performance in vivid, high-definition clarity. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The vibrant sound of timbales being played with precision and energy, blending with the ambient hum of a lively jazz club, creates a rich and dynamic soundscape.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/-XwtCzUaN1I_000160.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a cozy, warmly lit rehearsal room with soft gray carpeting and wooden panel walls, a young child stands confidently behind a gleaming black drum set, their small hands gripping drumsticks with determination. The atmosphere is one of playful energy and focus, as the child, dressed in a navy blue sweatshirt with white lettering and white long sleeves peeking out, prepares to unleash their rhythmic creativity. The drum set, with its polished chrome hardware and golden cymbals, reflects the ambient light, creating a sense of anticipation. As the child begins to play, their arms move with surprising precision, striking the drums and cymbals with enthusiasm. Each impact sends ripples across the drumheads and causes the cymbals to vibrate, their surfaces shimmering with each hit. The child's face lights up with joy, their cheeks slightly flushed from the exertion, and their eyes sparkle with excitement. In the background, a bicycle leans casually against the wall, adding to the casual, lived-in feel of the space. The camera captures the scene from a slightly elevated angle, allowing a clear view of the child's dynamic movements and the intricate details of the drum set. The visual counterpart of the rhythmic beats is evident in the way the drumsticks connect with the instruments, creating a cascade of motion and energy that fills the room. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The bright, crisp sound of a cymbal being played with enthusiasm and precision fills the cozy, warm room, creating a vibrant and energetic soundscape.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/4h550TCCd9w_000153.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a dimly lit recording studio bathed in purple hues, a passionate musician with long dreadlocks sits poised before a set of conga drums, his face illuminated by the soft glow of strategically placed lights that cast dramatic shadows across the room. The walls, adorned with soundproofing panels, create an intimate atmosphere, while the polished wooden floor reflects the warm tones of the instruments. The musician, dressed in a crisp white shirt layered under a gray and white checkered sweater, exudes focus and energy as he begins his performance. His hands move with precision and force, striking the taut drumheads with rhythmic intensity. Each impact sends subtle vibrations through the air, causing the drum skins to ripple and the surrounding microphones to capture every nuance. The musician's facial expressions shift with the rhythm, his jaw tightening and eyes narrowing as he builds momentum. The camera captures close-up shots of his hands, highlighting the intricate finger movements and the slight indentation left on the drumheads with each strike. The sequence transitions seamlessly between wide-angle views of the entire setup and tight focuses on the musician's dynamic gestures, emphasizing the physicality of the performance. The visual counterpart of the music is palpable as the drums resonate, their vibrations subtly affecting the surrounding air and creating a sense of immersive sound. The scene is a masterful blend of motion, emotion, and visual storytelling, capturing the essence of live musical expression. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The deep, resonant thud of conga drums fills the space, each strike producing a rich, vibrant tone that reverberates through the air. The rhythmic intensity and precise hand movements create a captivating soundscape, with the subtle vibrations of the drum skins adding depth and nuance to the performance.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/djJ4ETLTBWE_000090.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a serene forest bathed in soft, dappled sunlight filtering through the lush green canopy, a small thrush perches gracefully on a sturdy branch, its feathers a mix of earthy browns and subtle speckles that blend harmoniously with the natural surroundings. The bird's chest rises and falls rhythmically as it prepares to sing, its beak opening wide to reveal a delicate pink interior, while its throat muscles contract and expand, creating a series of intricate vibrations. The camera captures this intimate moment from a low angle, emphasizing the bird's presence against the vibrant backdrop of swaying pine needles and the gentle rustling of leaves. As the thrush sings, its head tilts slightly, and its eyes close momentarily, conveying a sense of pure expression. The branch beneath it trembles ever so slightly with each exhalation, and the surrounding foliage dances in response to the subtle breeze, enhancing the tranquil atmosphere. The scene is rendered in a photorealistic style, with highly detailed textures and natural colors, capturing every nuance of the thrush's song through the physical manifestations of its vocalization, all set against the backdrop of a peaceful, sunlit woodland in vivid, lifelike detail. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The clear, melodic call of a wood thrush resonates through the tranquil forest, blending harmoniously with the gentle rustling of leaves and the soft swaying of pine needles in the breeze.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/6zrX3NgsL7U_000290_000300_0.0_9.5.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a cozy, warmly lit room, a young woman sits gracefully, her posture relaxed yet focused, as she cradles a richly polished cello. The soft glow from a nearby lamp casts gentle shadows across the intricate lattice patterns of the shoji screen behind her, creating a serene and intimate atmosphere. She wears a vibrant red hoodie that contrasts beautifully with the deep brown hues of the cello. Her left hand moves deftly along the neck of the instrument, pressing down on the strings with precise finger placement, while her right hand holds the bow, drawing it back and forth across the strings with controlled, fluid motions. Each stroke of the bow creates a subtle vibration that ripples through the cello's body, causing the wood to resonate subtly. Her facial expressions shift subtly, reflecting the emotion of the music she is crafting her eyes close momentarily, her brow furrows slightly, and her lips part in concentration. The bow's horsehair glides smoothly over the taut strings, generating a series of delicate frictions that produce the music's visual counterpart. The camera remains steady, capturing her from a medium shot that emphasizes both her expressive face and the elegant lines of the cello. The scene is rendered in high-definition detail, with a cinematic quality that highlights every nuance of her performance, from the gleam of the cello's varnish to the soft texture of her clothing. The overall visual style is photorealistic, with a focus on natural lighting that enhances the warmth and authenticity of the moment. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The rich, resonant tones of a cello fill the air, each note blending seamlessly with the next in a melodic and emotive performance.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/vU3misJFgTI.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a pitch-black night sky, the atmosphere crackles with anticipation, illuminated only by the occasional flicker of distant lightning bolts that momentarily pierce the darkness. The scene is tense, with high-contrast lighting casting deep shadows across the clouds, creating a sense of foreboding. Suddenly, a brilliant flash of white-hot lightning erupts from the heavens, its jagged tendrils branching out like a network of electric veins. The bolt strikes the ground with immense force, sending a shower of sparks and debris flying into the air, the impact visible as the earth trembles beneath the strike. The camera captures this moment from a low angle, emphasizing the sheer power and scale of the lightning. As the bolt dissipates, the air shimmers with residual energy, and the surrounding environment is briefly bathed in an eerie glow. Another bolt follows, this time a thinner, more serpentine line of electricity that dances across the sky, its path erratic and unpredictable. The visual counterpart of thunder is seen in the rapid expansion and contraction of the air, causing the clouds to ripple and distort as if struck by an invisible wave. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The air crackles with intense electrical energy, punctuated by the deep, rumbling boom of thunder that reverberates through the night.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/YX_dIRBxMLg_000023_000033_4.5_7.5.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a serene, sun-dappled pond, a large green frog emerges from the water, its eyes wide and alert, reflecting the tranquil yet vibrant atmosphere. The frog's skin glistens with moisture, showcasing intricate patterns of dark spots and stripes that blend seamlessly with the surrounding aquatic environment. As it surfaces, the frog's powerful hind legs propel it upward, creating gentle ripples that disturb the floating algae and tiny bubbles clinging to its limbs. The camera captures this moment up close, focusing on the frog's face as it opens its mouth wide, revealing a pinkish interior and a slightly protruding tongue, suggesting the act of calling or breathing deeply. The throat expands rhythmically, indicating the vibration of vocal cords, while the surrounding water shimmers with the subtle movement of the frog's body. The natural light filters through the water, casting dynamic shadows and highlights across the frog's textured skin, enhancing the photorealistic detail. The scene is highly detailed, rendered in 8K resolution, with a cinematic quality that emphasizes the interplay of light, water, and the amphibian's graceful yet powerful presence. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The deep, resonant croaking of a large frog echoes through the tranquil pond, blending harmoniously with the gentle ripples and the subtle sounds of water movement.</br>
+            </div>
+        </div>
+
+        <div class="prompt-wrap full-screen-wrap" style="width: 50%; position: relative;">
+            <div class="loading-placeholder">
+                <div class="loading-text">Loading...</div>
+                <div class="loading-icon">&#9749</div>
+            </div>
+            <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/1NikaGNdoTE.mp4"></video>
+            <div class="prompt">
+            <strong class="prompt-strong">Video Caption</strong>: In a breathtaking coastal scene, the vast ocean stretches out under a clear blue sky, meeting the rugged shoreline where massive, moss-covered rocks stand as ancient sentinels. The atmosphere is one of serene yet powerful natural beauty, with the interplay of light and shadow accentuating the textures of the wet stones and the frothy waves. A medium shot captures the dynamic action as massive waves, their crests crowned with white foam, surge forward with relentless energy. The water collides with the jagged rocks, creating a spectacular display of splashing droplets and swirling currents that visually convey the thunderous impact. The waves retreat, pulling debris and seaweed back into the depths, only to gather strength and return in another mighty rush. The camera remains steady, allowing viewers to fully absorb the raw power and grace of the ocean. In the foreground, smaller rocks glisten with moisture, their surfaces reflecting the sunlight and adding to the scene's vivid detail. The visual counterpart of the wind is seen in the way it ruffles the surface of the water, creating ripples that dance across the waves. The overall visual style is photorealistic, from the delicate spray of the waves to the intricate patterns etched into the rocks by countless years of erosion. The dramatic interplay of light and shadow, combined with the constant motion of the waves, creates a mesmerizing and immersive experience that brings the raw beauty of the coastline to life. <br>
+            <strong class="prompt-strong">Audio Caption</strong>: The relentless surge of massive waves, their crests crowned with white foam, collides with jagged rocks, creating a powerful and continuous symphony of splashing water.</br>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- <section id="multi_ip">
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+            Video Generation from Text, Image & Audio (TIA)
+        </div>
+
+        <div class="description">
+            Our method generates text-aligned, subject-consistent, and audio-synced video. <em><strong>Please turn on the sound for watching. Hover over the video to reveal the text prompt.</strong></em>
+        </div>
+
+        <div class="flex flex-dynamic">
+
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/1.mp4"></video>
+                <div class="prompt">
+                    A close-up of a flight attendant with short blonde hair, seated upright in a tan leather airplane seat, speaking on a silver corded phone. She wears a dark uniform with a matching neck scarf, maintaining a composed, professional demeanor. Closed window blinds and a softly lit table lamp set the cabin background as she continues speaking, facing forward.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/2.mp4"></video>
+                <div class="prompt">
+                    A camera tracking shot of a female warrior rushing, her armor glinting under the light. Her determined eyes are locked ahead. She speaks with intensity while charging forward
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/3.mp4"></video>
+                <div class="prompt">
+                    A woman in a bulky space suit with a large helmet speaks to the camera against a blurred Mars backdrop. Her face remains clearly visible, framed by loose strands of tied-back hair and dark, determined eyes. A static close-up captures her expressive face and upper body as she continues speaking.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/4.mp4"></video>
+                <div class="prompt">
+                    A woman with long, wavy dark hair walks through a flower-filled park, wearing a light blue-gray, long-sleeved dress with a tied waist—matching one seen on a hanger. Warm, window-like light bathes her figure, highlighting the dress's elegant design and her graceful movements.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/5.mp4"></video>
+                <div class="prompt">
+                    A man with short dark hair, wearing a crisp white shirt and dark suit, joyfully plays with his black Labrador Retriever in front of a cozy house. Smiling brightly, he tosses a toy as the sleek, droopy-eared dog responds eagerly on the well-kept lawn, creating a warm, lively moment under the open sky.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/6.mp4"></video>
+                <div class="prompt">
+                    A man with wavy brown hair, wearing a light collared shirt and a cheerful smile, energetically plays with a brown leather football on a sunlit beach. The golden sand glistens, waves lap the shore, and seagulls soar under a clear blue sky, as he enthusiastically passes and catches the ball in the lively seaside breeze.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/7.mp4"></video>
+                <div class="prompt">
+                    In a neon-lit cyberpunk corridor, a young woman with long silvery hair moves gracefully in black cybernetic armor with glowing blue accents. Her suit reveals her shoulders and midriff, with mechanical gear on her arm, embodying the futuristic vibe.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/8.mp4"></video>
+                <div class="prompt">
+                    A reddish-brown haired and bearded man sits pensively against swirling blue-and-white brushstrokes, dressed in a blue coat and dark waistcoat. The artistic backdrop and his thoughtful pose evoke a Post-Impressionist style in a studio-like setting.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_image_audio/9.mp4"></video>
+                <div class="prompt">
+                    On a blue snowflake-patterned stage with floating ice particles, a woman with a long blonde braid sings passionately, wearing a shimmering teal gown with sheer sleeves, expressing emotion with an extended arm.
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="Text Control / Edit">
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+            Text Control / Edit
+        </div>
+
+        <div class="description">
+            <em><strong>Please turn on the sound for watching.</strong></em> Given the same subject reference images but different text prompts, our method achieves collaborative text-image controllability. 
+        </div>
+
+        <div class="flex flex-dynamic">
+
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/1.mp4"></video>
+                <div class="prompt">
+                    1. He wears light gray thin framed glasses, a white inner shirt, and a black outer coat, with short black hair. <br>
+                    2. He wears stylish black rectangular glasses, a light blue dress shirt, and a tailored navy blazer, with neatly styled short brown hair.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/2.mp4"></video>
+                <div class="prompt">
+                    1. He wears sunglasses, a dark suit jacket over a crisp white dress shirt. <br>
+                    2. He is wears a stylish fedora hat, a tailored navy blazer over a light blue dress shirt, and a vibrant patterned tie. His accessories include a sleek watch and a leather briefcase.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/3.mp4"></video>
+                <div class="prompt">
+                    1. A man donning a light blue button down shirt with a chest pocket. <br>
+                    2. A man wearing a crisp white t-shirt layered under a stylish navy blazer. He sports a sleek watch on his wrist and a pair of trendy sunglasses resting on his head.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/4.mp4"></video>
+                <div class="prompt">
+                    1. A baby with short, light brown hair. The baby is clad in a garment featuring a blue striped collar and gray fabric adorned with a small dark emblem. <br>
+                    2. A baby with short, light brown hair styled in soft curls. The baby is dressed in a vibrant red onesie with a white polka dot collar and gray fabric adorned with a small dark emblem. The baby wears a cute matching headband with a bow, adding a playful touch.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/5.mp4"></video>
+                <div class="prompt">
+                    1. A woman with platinum blonde hair that transitions into aqua - green at the tips. She wears long dangling earrings. <br>
+                    2. A woman with deep chestnut hair styled in loose waves, adorned with a delicate floral headband. She wears elegant gold hoop earrings and a flowing white sundress that complements the lush greenery around her.
+                </div>
+            </div>
+            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+                <div class="loading-placeholder">
+                    <div class="loading-text">Loading...</div>
+                    <div class="loading-icon">&#9749</div>
+                </div>
+                <video playsinline loop controls onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/text_control/6.mp4"></video>
+                <div class="prompt">
+                    1. A man dressed in a tailored dark gray suit with a small red emblem on the left lapel, a crisp white dress shirt, and a dark blue tie adorned with light - blue square patterns. <br>
+                    2. The video presents a close-up shot of a young man. He has short, styled black hair with a modern quiff. A silver chain necklace is around his neck, complementing a fitted black turtleneck sweater.
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="ethics-section">
+        <h3>Ethics Statement</h3>
+        <p>
+        We acknowledge that Text-to-Sounding-Video generation technology, like other generative technologies, carries potential risks of misuse. The ability to create realistic and synchronized audio-visual content from text could be exploited to generate convincing disinformation and fraudulent materials. The primary motivation for our research, however, is positive. We believe this technology holds significant potential for beneficial applications. We are committed to the responsible advancement of this field and encourage continued research into synthetic content detection and the establishment of clear ethical guidelines for deployment.
+        </p>
+    </section>
+
+    <!-- <section class="bibtex-section">
+        <h3>BibTeX</h3>
+        <pre class="bibtex-code">@misc{chen2025humo,
+            title={HuMo: Human-Centric Video Generation via Collaborative Multi-Modal Conditioning}, 
+            author={Liyang Chen and Tianxiang Ma and Jiawei Liu and Bingchuan Li and Zhuowei Chen and Lijie Liu and Xu He and Gen Li and Qian He and Zhiyong Wu},
+            year={2025},
+            eprint={2509.08519},
+            archivePrefix={arXiv},
+            primaryClass={cs.CV},
+            url={https://arxiv.org/abs/2509.08519}, 
+        }</pre>
+    </section> -->
+
+</body>
+</html>
