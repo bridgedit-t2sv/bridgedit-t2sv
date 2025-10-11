@@ -1,0 +1,1202 @@
+{
+    "/mnt/task_runtime/dataset/avsync15/test/Gwlez841U_I_000007_000017_0.0_3.0.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/1AfCMvhZJVY_000040_000050_0.5_3.5.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/6mtnv7SDQqw_000007_000017_0.5_4.5.mp4": {
+        "video_caption": [
+            "A frog is croaking."
+        ],
+        "audio_caption": [
+            "A frog is croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/C7VWBi27oGc_000006_000016_1.0_5.0.mp4": {
+        "video_caption": [
+            "A frog is sitting on a branch and croaking."
+        ],
+        "audio_caption": [
+            "A frog is sitting on a branch and croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/EnFYztu2dBc_000002_000012_0.0_10.0.mp4": {
+        "video_caption": [
+            "A man is playing a trombone."
+        ],
+        "audio_caption": [
+            "A man is playing a trombone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/6zrX3NgsL7U_000290_000300_0.0_9.5.mp4": {
+        "video_caption": [
+            "A woman is playing the cello."
+        ],
+        "audio_caption": [
+            "A woman is playing the cello."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Cac949WVIog_000240_000250_4.0_7.0.mp4": {
+        "video_caption": [
+            "A man is using a chisel to carve a piece of wood."
+        ],
+        "audio_caption": [
+            "A man is using a chisel to carve a piece of wood."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/-INNrk4mik4_000031_000041_7.0_10.0.mp4": {
+        "video_caption": [
+            "A frog is sitting in the water and then inflates its belly."
+        ],
+        "audio_caption": [
+            "A frog is sitting in the water and then inflates its belly."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/GGf2EbHoL_w_000000_000010_0.0_3.0.mp4": {
+        "video_caption": [
+            "A man is firing a machine gun."
+        ],
+        "audio_caption": [
+            "A man is firing a machine gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/03fGTwkSBWs_000289_000299_0.0_5.0.mp4": {
+        "video_caption": [
+            "A man is firing a gun."
+        ],
+        "audio_caption": [
+            "A man is firing a gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/0_1Jo7NAhl4_000149_000159_2.5_6.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/-njqm6R9Tko_000050_000060_5.5_10.0.mp4": {
+        "video_caption": [
+            "A man is firing a gun."
+        ],
+        "audio_caption": [
+            "A man is firing a gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/-puNE6Pq7Jo_000030_000040_0.5_7.0.mp4": {
+        "video_caption": [
+            "A man is playing the violin."
+        ],
+        "audio_caption": [
+            "A man is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/IWvA2ZlAK2g_000028_000038_6.5_10.0.mp4": {
+        "video_caption": [
+            "A person is firing a machine gun outdoors."
+        ],
+        "audio_caption": [
+            "A person is firing a machine gun outdoors."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/-1rZFviqTTQ_000028_000038_3.5_5.8.mp4": {
+        "video_caption": [
+            "A person is sharpening a knife on a sharpening stone."
+        ],
+        "audio_caption": [
+            "A person is sharpening a knife on a sharpening stone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/9kNLBpyWntg_000320_000330_1.5_4.5.mp4": {
+        "video_caption": [
+            "A man in a red shirt throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A man in a red shirt throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/F0xntO9MIHw_000005_000015_4.5_9.0.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in the early morning light."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in the early morning light."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/1gadod9llZY_000046_000056_4.5_8.5.mp4": {
+        "video_caption": [
+            "A man throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A man throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/0bC2T-xZkCs_000187_000197_0.0_3.0.mp4": {
+        "video_caption": [
+            "A young man wearing glasses and a black shirt is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A young man wearing glasses and a black shirt is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/FYldIv9lGLU_000141_000151_0.0_6.5.mp4": {
+        "video_caption": [
+            "A man is firing a machine gun."
+        ],
+        "audio_caption": [
+            "A man is firing a machine gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/6wHFhrAqt5Q_000023_000033_5.5_8.5.mp4": {
+        "video_caption": [
+            "A baby is lying on its back on a white and gray striped blanket. The baby is wearing a yellow and white floral onesie. The baby starts to cry and then begins to cry more intensely. The baby's mouth is open and tears are streaming down its face. The baby's arms are flailing and its legs are kicking. The baby's eyes are wide open and it appears to be in distress."
+        ],
+        "audio_caption": [
+            "A baby is lying on its back on a white and gray striped blanket. The baby is wearing a yellow and white floral onesie. The baby starts to cry and then begins to cry more intensely. The baby's mouth is open and tears are streaming down its face. The baby's arms are flailing and its legs are kicking. The baby's eyes are wide open and it appears to be in distress."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/67rx_-m3NaE_000153_000163_1.0_5.0.mp4": {
+        "video_caption": [
+            "A hammer strikes a piece of metal on an anvil."
+        ],
+        "audio_caption": [
+            "A hammer strikes a piece of metal on an anvil."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/7HHCf9-HBiA_000000_000010_7.0_10.0.mp4": {
+        "video_caption": [
+            "A person is holding a gun and pulling the trigger."
+        ],
+        "audio_caption": [
+            "A person is holding a gun and pulling the trigger."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/8fDeRi8Lqyg_000040_000050_6.0_10.0.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/A6GuZLAVqbI_000110_000120_0.0_3.5.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in a grassy field."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in a grassy field."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/-j9x-d4ZqtY_000030_000040_0.0_9.5.mp4": {
+        "video_caption": [
+            "A young girl is playing the violin."
+        ],
+        "audio_caption": [
+            "A young girl is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/0s49D-LqHwg_000030_000040_2.0_5.0.mp4": {
+        "video_caption": [
+            "A young girl is playing the violin."
+        ],
+        "audio_caption": [
+            "A young girl is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/2jIv5qBTS88_000009_000019_1.5_5.5.mp4": {
+        "video_caption": [
+            "A dog is barking."
+        ],
+        "audio_caption": [
+            "A dog is barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/3cThgRIaqgU_000016_000026_0.5_9.0.mp4": {
+        "video_caption": [
+            "A person is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A person is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/231-4GOUaDQ_000014_000024_7.0_10.0.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in the early morning."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in the early morning."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/IQmrVcRT-oI_000020_000030_5.5_10.0.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in the early morning."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in the early morning."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/22mgtk4Iw0M_000113_000123_0.0_10.0.mp4": {
+        "video_caption": [
+            "The video features a man playing the trombone in a music room. He is wearing a black t-shirt and blue jeans, and he is standing in front of a music stand with sheet music placed on it. The room has a wooden wall and a mirror on the wall behind him. The man is holding the trombone with his left hand and pressing the slide with his right hand. He is playing the trombone while looking at the sheet music. The video also shows the sheet music on the screen, which includes the notes and the rhythm of the music. The man is playing the trombone with a lot of passion and skill, and he is able to produce a beautiful sound. The video is a great example of how music can bring people together and create a sense of community."
+        ],
+        "audio_caption": [
+            "The video features a man playing the trombone in a music room. He is wearing a black t-shirt and blue jeans, and he is standing in front of a music stand with sheet music placed on it. The room has a wooden wall and a mirror on the wall behind him. The man is holding the trombone with his left hand and pressing the slide with his right hand. He is playing the trombone while looking at the sheet music. The video also shows the sheet music on the screen, which includes the notes and the rhythm of the music. The man is playing the trombone with a lot of passion and skill, and he is able to produce a beautiful sound. The video is a great example of how music can bring people together and create a sense of community."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/GhJhxnqgKcc_000139_000149_1.0_5.5.mp4": {
+        "video_caption": [
+            "A baby wearing a grey hoodie is sitting on a couch and making noises."
+        ],
+        "audio_caption": [
+            "A baby wearing a grey hoodie is sitting on a couch and making noises."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/2OLXoKxJ1qg_000030_000040_0.0_4.5.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in a grassy field, while another rooster walks in the background."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in a grassy field, while another rooster walks in the background."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/3l4alj6RRkM_000547_000557_2.0_6.5.mp4": {
+        "video_caption": [
+            "A man is firing a double-barreled shotgun outdoors."
+        ],
+        "audio_caption": [
+            "A man is firing a double-barreled shotgun outdoors."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/8PJoXe_XFe8_000030_000040_3.0_6.0.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/9rWoPW0VU00_000165_000175_0.0_3.0.mp4": {
+        "video_caption": [
+            "A frog is sitting in a pond and croaking."
+        ],
+        "audio_caption": [
+            "A frog is sitting in a pond and croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/DPMEoIfxrZY_000030_000040_0.0_9.0.mp4": {
+        "video_caption": [
+            "A man in a green shirt is playing the violin."
+        ],
+        "audio_caption": [
+            "A man in a green shirt is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/3yXCtpvjz6E_000017_000027_1.0_4.5.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/5Uodeo_Ln84_000014_000024_6.5_9.5.mp4": {
+        "video_caption": [
+            "A baby is crying."
+        ],
+        "audio_caption": [
+            "A baby is crying."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/FwB52n9_dn0_000007_000017_0.0_10.0.mp4": {
+        "video_caption": [
+            "A white lion is roaring."
+        ],
+        "audio_caption": [
+            "A white lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/4VBd7XmgsTc_000019_000029_0.0_4.5.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/J4qAV4_pCMI_000077_000087_4.0_7.5.mp4": {
+        "video_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ],
+        "audio_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/3qesirWAGt4_000020_000030_0.0_8.0.mp4": {
+        "video_caption": [
+            "A small dog is barking and growling."
+        ],
+        "audio_caption": [
+            "A small dog is barking and growling."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Ni8dpJxscEE_000072_000082_5.0_8.5.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in a farm setting."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in a farm setting."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/HiLBo43GMKE_000052_000062_5.0_8.0.mp4": {
+        "video_caption": [
+            "A frog is sitting in a pond and croaking."
+        ],
+        "audio_caption": [
+            "A frog is sitting in a pond and croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/5Xn4lTalKc4_000099_000109_0.0_3.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/74BDV0z_bvw_000030_000040_0.5_9.5.mp4": {
+        "video_caption": [
+            "A man in a blue shirt and tie is playing the violin."
+        ],
+        "audio_caption": [
+            "A man in a blue shirt and tie is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Ft93ncEBpGo_000360_000370_1.0_4.5.mp4": {
+        "video_caption": [
+            "A person is sharpening a knife on a stone."
+        ],
+        "audio_caption": [
+            "A person is sharpening a knife on a stone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/5WbYvoqG3fo_000074_000084_0.0_4.0.mp4": {
+        "video_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ],
+        "audio_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/3vhWXxE_X0M_000028_000038_0.0_7.0.mp4": {
+        "video_caption": [
+            "A person is playing a trombone."
+        ],
+        "audio_caption": [
+            "A person is playing a trombone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/5Y_8wiKVwK0_000186_000196_6.5_9.5.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/2baznhAyEsg_000014_000024_5.5_8.5.mp4": {
+        "video_caption": [
+            "A rooster crows loudly."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/KTdJ6TCmacg_000070_000080_1.5_6.0.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/57Q_RHO0qA8_000000_000010_1.5_4.5.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/5kXRSxMRZGw_000058_000068_1.0_4.0.mp4": {
+        "video_caption": [
+            "A person is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A person is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/IWr6t7Z1mvg_000000_000010_2.5_6.5.mp4": {
+        "video_caption": [
+            "A dog is barking in a room."
+        ],
+        "audio_caption": [
+            "A dog is barking in a room."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/7qx057kqx1E_000039_000049_6.0_9.5.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/WKY-QgdWR1Y_000070_000080_2.5_6.0.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/DDelecxB7p8_000068_000078_1.0_4.0.mp4": {
+        "video_caption": [
+            "A man throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A man throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/FAvONjeqIGI_000061_000071_0.5_4.5.mp4": {
+        "video_caption": [
+            "A baby is lying on its back and moving its arms and legs. The baby is wearing a light blue shirt with a black bear design on it. The baby's eyes are open and it appears to be looking around. The baby's mouth is slightly open and it seems to be making some sounds."
+        ],
+        "audio_caption": [
+            "A baby is lying on its back and moving its arms and legs. The baby is wearing a light blue shirt with a black bear design on it. The baby's eyes are open and it appears to be looking around. The baby's mouth is slightly open and it seems to be making some sounds."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/J2L9eJ-h9DY_000030_000040_0.0_3.0.mp4": {
+        "video_caption": [
+            "A woman is playing the violin."
+        ],
+        "audio_caption": [
+            "A woman is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Ft93ncEBpGo_000184_000194_0.0_3.0.mp4": {
+        "video_caption": [
+            "A man is sharpening a knife on a stone."
+        ],
+        "audio_caption": [
+            "A man is sharpening a knife on a stone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Il9qAhbbeBw_000013_000023_3.0_7.0.mp4": {
+        "video_caption": [
+            "A frog is sitting on someone's hand."
+        ],
+        "audio_caption": [
+            "A frog is sitting on someone's hand."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/FWxMWNFsdqk_000448_000458_1.0_4.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/GL5tAz0bzSU_000495_000505_2.0_10.0.mp4": {
+        "video_caption": [
+            "A man is playing a trombone."
+        ],
+        "audio_caption": [
+            "A man is playing a trombone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/kq3sz5uOvns_000208_000218_0.0_5.0.mp4": {
+        "video_caption": [
+            "A man is crouching down and holding a gun. He shoots the gun."
+        ],
+        "audio_caption": [
+            "A man is crouching down and holding a gun. He shoots the gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/KzK6d6Qpu_o_000010_000020_3.0_7.0.mp4": {
+        "video_caption": [
+            "A dog is barking."
+        ],
+        "audio_caption": [
+            "A dog is barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/l0loFh-e25Y_000000_000010_2.0_8.0.mp4": {
+        "video_caption": [
+            "A young girl is playing a trombone."
+        ],
+        "audio_caption": [
+            "A young girl is playing a trombone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/MTL8-cVoP64_000169_000179_0.0_3.5.mp4": {
+        "video_caption": [
+            "A man is firing a gun."
+        ],
+        "audio_caption": [
+            "A man is firing a gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/NRWlHRvaDcQ_000788_000798_0.0_4.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/pYsT6PjPaFY_000030_000040_0.0_5.5.mp4": {
+        "video_caption": [
+            "A baby is crying in a baby swing."
+        ],
+        "audio_caption": [
+            "A baby is crying in a baby swing."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/L_ucgLAe-TA_000599_000609_0.0_10.0.mp4": {
+        "video_caption": [
+            "A man in a red shirt is playing a trombone."
+        ],
+        "audio_caption": [
+            "A man in a red shirt is playing a trombone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/lptpDgCE0N4_000083_000093_1.0_3.0.mp4": {
+        "video_caption": [
+            "A person is hammering a nail into a wooden surface."
+        ],
+        "audio_caption": [
+            "A person is hammering a nail into a wooden surface."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/JwJAh2X6btc_000010_000020_1.5_6.0.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in a farm setting."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in a farm setting."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_2hpQeNbpR4_000020_000030_0.0_10.0.mp4": {
+        "video_caption": [
+            "A man is firing a rifle."
+        ],
+        "audio_caption": [
+            "A man is firing a rifle."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/fp6pBJ1Iygk_000026_000036_0.0_9.0.mp4": {
+        "video_caption": [
+            "A dog is barking."
+        ],
+        "audio_caption": [
+            "A dog is barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/OIGvCw4UUYk_000616_000626_3.0_10.0.mp4": {
+        "video_caption": [
+            "A man in a red sweater is playing a cello. He is sitting in a room with a desk and a lamp. He is holding the bow in his right hand and the cello in his left hand. He is looking down at the cello as he plays."
+        ],
+        "audio_caption": [
+            "A man in a red sweater is playing a cello. He is sitting in a room with a desk and a lamp. He is holding the bow in his right hand and the cello in his left hand. He is looking down at the cello as he plays."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/NqLyRSDvVE0_000224_000234_0.0_3.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/O8CrIlFXN1I_000030_000040_3.0_10.0.mp4": {
+        "video_caption": [
+            "A man is playing the violin."
+        ],
+        "audio_caption": [
+            "A man is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/OpJZ-KVF-K8_000030_000040_5.0_7.5.mp4": {
+        "video_caption": [
+            "A young man is playing the violin in a room with colorful walls. He is wearing headphones and appears to be focused on his performance. The room has a mural of a person playing a keyboard on one of the walls."
+        ],
+        "audio_caption": [
+            "A young man is playing the violin in a room with colorful walls. He is wearing headphones and appears to be focused on his performance. The room has a mural of a person playing a keyboard on one of the walls."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/krEzQuVHoKk_000001_000011_6.0_10.0.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in a farmyard setting."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in a farmyard setting."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/NF1lwZ24RYI_000030_000040_6.0_10.0.mp4": {
+        "video_caption": [
+            "A dog is howling."
+        ],
+        "audio_caption": [
+            "A dog is howling."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/PnwTlG1aBdU_000086_000096_1.5_4.5.mp4": {
+        "video_caption": [
+            "A man is playing a cello."
+        ],
+        "audio_caption": [
+            "A man is playing a cello."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_52ntwwQyv4_000070_000080_3.5_9.5.mp4": {
+        "video_caption": [
+            "A small dog is sitting on the floor and barking."
+        ],
+        "audio_caption": [
+            "A small dog is sitting on the floor and barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/akjqOhO0IM0_000010_000020_3.0_10.0.mp4": {
+        "video_caption": [
+            "A man is firing a machine gun."
+        ],
+        "audio_caption": [
+            "A man is firing a machine gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/dK6eZGeDjZg_000057_000067_2.5_6.0.mp4": {
+        "video_caption": [
+            "A hammer is being used to shape a piece of metal."
+        ],
+        "audio_caption": [
+            "A hammer is being used to shape a piece of metal."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/QIT6l8y0_cE_000039_000049_2.5_6.0.mp4": {
+        "video_caption": [
+            "A person is holding a gun and firing it."
+        ],
+        "audio_caption": [
+            "A person is holding a gun and firing it."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/mdLD3Khu5k4_000030_000040_3.0_8.0.mp4": {
+        "video_caption": [
+            "A small dog is barking."
+        ],
+        "audio_caption": [
+            "A small dog is barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/UPVn_85FRCw_000020_000030_5.5_8.5.mp4": {
+        "video_caption": [
+            "A man is holding a gun and shoots it."
+        ],
+        "audio_caption": [
+            "A man is holding a gun and shoots it."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/rsrWBquU8bc_000050_000060_0.0_4.5.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/g6kGCt7G2-w_000080_000090_2.0_7.0.mp4": {
+        "video_caption": [
+            "A man plays a trumpet."
+        ],
+        "audio_caption": [
+            "A man plays a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/iuozNmF5TcI_000037_000047_0.0_3.0.mp4": {
+        "video_caption": [
+            "A person wearing gloves is holding a hammer and hitting a phone on a table."
+        ],
+        "audio_caption": [
+            "A person wearing gloves is holding a hammer and hitting a phone on a table."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/V0QCCLD_0s8_000130_000140_3.0_7.0.mp4": {
+        "video_caption": [
+            "A person throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A person throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/UR0l-ggYOfg_000041_000051_6.0_10.0.mp4": {
+        "video_caption": [
+            "A baby is lying on a bed and moving its mouth."
+        ],
+        "audio_caption": [
+            "A baby is lying on a bed and moving its mouth."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/T6sSJ75v9wE_000027_000037_0.0_4.0.mp4": {
+        "video_caption": [
+            "A man is holding a gun and shoots it."
+        ],
+        "audio_caption": [
+            "A man is holding a gun and shoots it."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/OJqJgotD8D4_000038_000048_4.0_8.5.mp4": {
+        "video_caption": [
+            "A rooster crows loudly in the early morning."
+        ],
+        "audio_caption": [
+            "A rooster crows loudly in the early morning."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/vRfRQJfTHiE_000030_000040_3.5_9.0.mp4": {
+        "video_caption": [
+            "A man with curly hair is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A man with curly hair is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/YOrImbuhsQ8_000049_000059_1.0_4.0.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/SFnVnnubE0M_000030_000040_0.5_3.5.mp4": {
+        "video_caption": [
+            "A young boy is playing the violin. He is sitting on a couch in a living room with a Christmas tree in the background. He is wearing a red shirt and has short black hair. He is holding the violin with his left hand and the bow with his right hand. He is looking at the camera and smiling."
+        ],
+        "audio_caption": [
+            "A young boy is playing the violin. He is sitting on a couch in a living room with a Christmas tree in the background. He is wearing a red shirt and has short black hair. He is holding the violin with his left hand and the bow with his right hand. He is looking at the camera and smiling."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Vwz4vOzWnLE_000078_000088_0.0_3.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_RB9txkXq1o_000053_000063_5.5_10.0.mp4": {
+        "video_caption": [
+            "A man is firing a machine gun."
+        ],
+        "audio_caption": [
+            "A man is firing a machine gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/iLo-V2zvcZE_000030_000040_5.0_9.5.mp4": {
+        "video_caption": [
+            "A man in a blue shirt is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A man in a blue shirt is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Rl0aaF32hV4_000220_000230_1.5_10.0.mp4": {
+        "video_caption": [
+            "Now remove the burr."
+        ],
+        "audio_caption": [
+            "Now remove the burr."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/ol71q9DuY1Y_000128_000138_1.0_10.0.mp4": {
+        "video_caption": [
+            "A man is playing a trombone. He is wearing a plaid shirt and has a blue strap around his neck. He is standing in a room with a white wall and a picture hanging on it. He is holding the trombone with his left hand and moving the slide with his right hand."
+        ],
+        "audio_caption": [
+            "A man is playing a trombone. He is wearing a plaid shirt and has a blue strap around his neck. He is standing in a room with a white wall and a picture hanging on it. He is holding the trombone with his left hand and moving the slide with his right hand."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/WJV6Ey6hXEw_000005_000015_3.5_10.0.mp4": {
+        "video_caption": [
+            "A dog growls and barks."
+        ],
+        "audio_caption": [
+            "A dog growls and barks."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/YX4MzUOPA8U_000094_000104_7.0_10.0.mp4": {
+        "video_caption": [
+            "A man is holding a gun in his hand."
+        ],
+        "audio_caption": [
+            "A man is holding a gun in his hand."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/l_SEPV8JB1U_000010_000020_2.5_10.0.mp4": {
+        "video_caption": [
+            "A dog is laying on a couch and barking."
+        ],
+        "audio_caption": [
+            "A dog is laying on a couch and barking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/YKLqVHlgSiw_000176_000186_6.3_8.5.mp4": {
+        "video_caption": [
+            "A man is sharpening a knife on a whetstone."
+        ],
+        "audio_caption": [
+            "A man is sharpening a knife on a whetstone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/dDbYcXgoR9A_000030_000040_0.0_4.5.mp4": {
+        "video_caption": [
+            "A man is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A man is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/irN1qoE3-uQ_000004_000014_3.0_6.0.mp4": {
+        "video_caption": [
+            "A baby is making noises and moving its arms. The baby is wearing a green shirt with white polka dots."
+        ],
+        "audio_caption": [
+            "A baby is making noises and moving its arms. The baby is wearing a green shirt with white polka dots."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/ZtKvvhRBs44_000247_000257_0.0_4.0.mp4": {
+        "video_caption": [
+            "A man is playing a trombone in a music room. A woman is sitting in a chair next to him."
+        ],
+        "audio_caption": [
+            "A man is playing a trombone in a music room. A woman is sitting in a chair next to him."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/lDTrnXAu4WY_000025_000035_0.5_8.5.mp4": {
+        "video_caption": [
+            "A young boy is playing the cello in a room. He is sitting on a chair and holding the cello between his legs. He is wearing a black and white striped shirt and black pants. He is using a bow to play the cello. The room has a wooden floor and a wooden bookshelf in the background. There is also a window with curtains and a lamp on the bookshelf. The boy is playing the cello with concentration and focus."
+        ],
+        "audio_caption": [
+            "A young boy is playing the cello in a room. He is sitting on a chair and holding the cello between his legs. He is wearing a black and white striped shirt and black pants. He is using a bow to play the cello. The room has a wooden floor and a wooden bookshelf in the background. There is also a window with curtains and a lamp on the bookshelf. The boy is playing the cello with concentration and focus."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/n_YeYjbyJu8_000000_000010_1.5_4.5.mp4": {
+        "video_caption": [
+            "A man throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A man throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/YX_dIRBxMLg_000023_000033_4.5_7.5.mp4": {
+        "video_caption": [
+            "A frog is sitting in the water."
+        ],
+        "audio_caption": [
+            "A frog is sitting in the water."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/lm8M8aEoa3c_000081_000091_3.5_8.0.mp4": {
+        "video_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ],
+        "audio_caption": [
+            "A man is hammering a nail into a piece of wood."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/nEgGc3Zg85E_000030_000040_4.5_7.5.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_JS6F_WP17w_000010_000020_4.5_7.5.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/qe3eHr5Q01U_000098_000108_1.5_4.5.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/ZDQSxYmgyAo_000499_000509_5.5_9.5.mp4": {
+        "video_caption": [
+            "A bowling ball rolls down the lane and knocks down all the pins."
+        ],
+        "audio_caption": [
+            "A bowling ball rolls down the lane and knocks down all the pins."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_5An8FmGzxw_000009_000019_0.5_7.0.mp4": {
+        "video_caption": [
+            "A boy plays a trumpet."
+        ],
+        "audio_caption": [
+            "A boy plays a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/q_sB0ur0mEA_000016_000026_4.5_8.5.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_f7qCwXJQmQ_000035_000045_1.0_4.0.mp4": {
+        "video_caption": [
+            "A man is playing a cello."
+        ],
+        "audio_caption": [
+            "A man is playing a cello."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/jvIuht_NQmI_000089_000099_1.0_4.0.mp4": {
+        "video_caption": [
+            "[Music]"
+        ],
+        "audio_caption": [
+            "[Music]"
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/czaj1HwZFYk_000180_000190_0.0_10.0.mp4": {
+        "video_caption": [
+            "A man in a suit is playing a cello with a bow. He is standing in front of a piano, and there is another man playing the piano. The background is a wall with a gold frame."
+        ],
+        "audio_caption": [
+            "A man in a suit is playing a cello with a bow. He is standing in front of a piano, and there is another man playing the piano. The background is a wall with a gold frame."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/Yi9Xdiq579o_000240_000250_2.5_10.0.mp4": {
+        "video_caption": [
+            "A man in a white shirt and black pants is playing a cello. He is sitting on a chair and holding the cello between his legs. He is using a bow to play the cello. The background is dark."
+        ],
+        "audio_caption": [
+            "A man in a white shirt and black pants is playing a cello. He is sitting on a chair and holding the cello between his legs. He is using a bow to play the cello. The background is dark."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/hhKsZ_uP-m8_000072_000082_0.5_5.0.mp4": {
+        "video_caption": [
+            "A gun is being fired."
+        ],
+        "audio_caption": [
+            "A gun is being fired."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/pLlHIfTP5R4_000030_000040_0.0_10.0.mp4": {
+        "video_caption": [
+            "A man is playing a double bass in a room with soundproofing panels on the walls. He is wearing a light blue shirt and has short brown hair. He is sitting on a chair and holding the double bass with his left hand while plucking the strings with his right hand. The room is well-lit and there is a drum set in the background."
+        ],
+        "audio_caption": [
+            "A man is playing a double bass in a room with soundproofing panels on the walls. He is wearing a light blue shirt and has short brown hair. He is sitting on a chair and holding the double bass with his left hand while plucking the strings with his right hand. The room is well-lit and there is a drum set in the background."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/_tzXSoaZ644_000021_000031_0.0_3.0.mp4": {
+        "video_caption": [
+            "A man is hammering a horseshoe on an anvil."
+        ],
+        "audio_caption": [
+            "A man is hammering a horseshoe on an anvil."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/ao6-Npm2Cbw_000030_000040_1.5_4.5.mp4": {
+        "video_caption": [
+            "A baby is crying."
+        ],
+        "audio_caption": [
+            "A baby is crying."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/dIIiaO12I5Q_000006_000016_0.0_3.0.mp4": {
+        "video_caption": [
+            "A baby is crying."
+        ],
+        "audio_caption": [
+            "A baby is crying."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/fWqXK1PQfOc_000134_000144_2.5_5.5.mp4": {
+        "video_caption": [
+            "A person throws a bowling ball down a lane."
+        ],
+        "audio_caption": [
+            "A person throws a bowling ball down a lane."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/i60k4LXneng_000016_000026_4.0_7.0.mp4": {
+        "video_caption": [
+            "A baby is babbling and a woman is speaking."
+        ],
+        "audio_caption": [
+            "A baby is babbling and a woman is speaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/rMGOF-XHU58_000010_000020_5.0_8.0.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/r1JpF0ovMFA_000034_000044_2.5_6.0.mp4": {
+        "video_caption": [
+            "A man in a blue shirt is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A man in a blue shirt is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/sxqKIm4LlF0_000024_000034_0.0_3.0.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/qHqTC2CL0cQ_000016_000026_0.0_9.5.mp4": {
+        "video_caption": [
+            "A trombone is being played."
+        ],
+        "audio_caption": [
+            "A trombone is being played."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/tEfjBCYLEVI_000011_000021_4.0_8.5.mp4": {
+        "video_caption": [
+            "A lion is roaring."
+        ],
+        "audio_caption": [
+            "A lion is roaring."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/tBQf0NWgLbg_000040_000050_6.0_9.0.mp4": {
+        "video_caption": [
+            "A young girl is playing the cello in a room."
+        ],
+        "audio_caption": [
+            "A young girl is playing the cello in a room."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/tx7XKy_4f4c_000005_000015_4.0_7.0.mp4": {
+        "video_caption": [
+            "A frog is sitting on someone's hand."
+        ],
+        "audio_caption": [
+            "A frog is sitting on someone's hand."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/stnD0ZE3bAQ_000030_000040_2.0_6.5.mp4": {
+        "video_caption": [
+            "A frog is sitting on a wooden surface and croaking."
+        ],
+        "audio_caption": [
+            "A frog is sitting on a wooden surface and croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/sxJjC9HC1Xs_000310_000320_0.5_10.0.mp4": {
+        "video_caption": [
+            "A man is laying on the ground and firing a machine gun."
+        ],
+        "audio_caption": [
+            "A man is laying on the ground and firing a machine gun."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/uA5__Dby1C0_000170_000180_2.0_4.1.mp4": {
+        "video_caption": [
+            "A man is sharpening a knife on a stone."
+        ],
+        "audio_caption": [
+            "A man is sharpening a knife on a stone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/x3ytjRxhNf4_000028_000038_3.0_6.0.mp4": {
+        "video_caption": [
+            "A man is playing a trumpet."
+        ],
+        "audio_caption": [
+            "A man is playing a trumpet."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/uxEdTjXT-rs_000030_000040_1.0_5.0.mp4": {
+        "video_caption": [
+            "A man is playing the violin."
+        ],
+        "audio_caption": [
+            "A man is playing the violin."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/weSfQmkG35I_000002_000012_7.0_10.0.mp4": {
+        "video_caption": [
+            "A frog is croaking."
+        ],
+        "audio_caption": [
+            "A frog is croaking."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/zm-1vgWuexY_000030_000040_5.5_8.5.mp4": {
+        "video_caption": [
+            "A toilet is flushed."
+        ],
+        "audio_caption": [
+            "A toilet is flushed."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/yFuDYRwZ3EA_000237_000247_2.5_5.5.mp4": {
+        "video_caption": [
+            "A person is sharpening a knife on a whetstone."
+        ],
+        "audio_caption": [
+            "A person is sharpening a knife on a whetstone."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/yUZMpGwS-OI_000230_000240_2.5_6.5.mp4": {
+        "video_caption": [
+            "A woman is holding a gun and shooting it."
+        ],
+        "audio_caption": [
+            "A woman is holding a gun and shooting it."
+        ]
+    },
+    "/mnt/task_runtime/dataset/avsync15/test/vcT8gClKYTs_000013_000023_0.0_10.0.mp4": {
+        "video_caption": [
+            "A young boy is playing the cello in a room. He is sitting on a chair with the cello between his legs. He is wearing a white t-shirt and has short brown hair. He is looking at the laptop in front of him as he plays. The cello is a rich brown color and has four strings. The boy is using a bow to play the cello. The room is carpeted and has white walls. There is a door in the background. The boy is playing a piece of music that is not recognizable. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the"
+        ],
+        "audio_caption": [
+            "A young boy is playing the cello in a room. He is sitting on a chair with the cello between his legs. He is wearing a white t-shirt and has short brown hair. He is looking at the laptop in front of him as he plays. The cello is a rich brown color and has four strings. The boy is using a bow to play the cello. The room is carpeted and has white walls. There is a door in the background. The boy is playing a piece of music that is not recognizable. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the cello with a lot of passion and emotion. The music is being played in a fast tempo. The boy is playing the"
+        ]
+    }
+}
