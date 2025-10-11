@@ -1,0 +1,82 @@
+data:
+  audio_process:
+    duration              : 5.40
+    sampling_rate         : 44100
+    filter_length         : 1024
+    n_mel                 : 64
+    mel_fmin              : 0
+    mel_fmax              : 8000
+    hop_length            : 160
+    win_length            : 1024
+    mel_norm              : -4.2677393
+    mel_std               : 4.5689974
+    min_waveform_length   : 100
+  video_process:
+    duration              : 5.40
+    target_frame_nums     : 81
+    target_fps            : 15
+    video_h               : 480
+    video_w               : 832
+    vae_scale_factor      : 4
+  favd:
+    train:
+      target            : dataset.dataset_va.VideoDataset
+      params:
+        meta_dir            : 
+          - "/mnt/task_runtime/dataset/favdbench/video/train"
+          - "/mnt/task_runtime/dataset/favdbench/annotations_en.json"
+        seperate_meta_dir       : 
+          - "/mnt/task_runtime/dataset/favdbench/video/train"
+          - "/mnt/task_runtime/t2av/caption_pipeline/recaption/favd_sep_train.json"
+        load_mode_item           : favd
+        load_mode_meta           : favd
+        load_seperate           : True
+        audio_process_config : ${data.audio_process}
+        video_process_config : ${data.video_process}
+        load_from_cache    : True
+        embedding_cache_path_overall: "/mnt/task_runtime/t2av/code_base/emb_cache/overall"
+        embedding_cache_path_seperate: "/mnt/task_runtime/t2av/code_base/emb_cache/seperate"
+    validation:
+      target            : dataset.dataset_va.VideoDataset
+      params:
+        meta_dir            : 
+          - "/mnt/task_runtime/dataset/favdbench/video/val"
+          - "/mnt/task_runtime/dataset/favdbench/annotations_en.json"
+        load_mode_item           : favd
+        load_mode_meta           : favd
+        load_seperate           : False
+        audio_process_config : ${data.audio_process}
+        video_process_config : ${data.video_process}
+        load_from_cache    : True
+        embedding_cache_path: "/mnt/task_runtime/t2av/code_base/emb_cache"
+    test:
+      target            : dataset.dataset_va.VideoDataset
+      params:
+        meta_dir            : 
+          - "/mnt/task_runtime/dataset/favdbench/video/test"
+          - "/mnt/task_runtime/dataset/favdbench/annotations_en.json"
+        load_mode_item           : favd
+        load_mode_meta           : favd
+        load_seperate           : False
+        audio_process_config : ${data.audio_process}
+        video_process_config : ${data.video_process}
+        load_from_cache    : True
+        embedding_cache_path: "/mnt/task_runtime/t2av/code_base/emb_cache"
+  vggsound:
+    train:
+      target            : dataset.dataset_va.VideoDataset
+      params:
+        meta_dir            : 
+          - "/mnt/task_runtime/dataset/vgg_filter/train"
+          - "/mnt/task_runtime/t2av/caption_pipeline/recaption/vggsound_train_all.json"
+        seperate_meta_dir       : 
+          - "/mnt/task_runtime/dataset/vgg_filter/train"
+          - "/mnt/task_runtime/t2av/caption_pipeline/recaption/vggsound_train_all.json"
+        load_mode_item           : vggsound
+        load_mode_meta           : vggsound
+        load_seperate           : True
+        audio_process_config : ${data.audio_process}
+        video_process_config : ${data.video_process}
+        load_from_cache    : False
+        embedding_cache_path_overall: "/mnt/task_runtime/t2av/code_base/emb_cache/vggsound"
+        embedding_cache_path_seperate: "/mnt/task_runtime/t2av/code_base/emb_cache/vggsound"

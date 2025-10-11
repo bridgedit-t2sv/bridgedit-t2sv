@@ -1,0 +1,82 @@
+load_path_config:
+  audio_model_path:
+    ckpt_dir_audio_diffusion: "/mnt/task_runtime/models/stable-audio-open-1.0/transformer"
+    ckpt_dir_audio_vae: "/mnt/task_runtime/models/stable-audio-open-1.0/vae"
+    ckpt_dir_projection: "/mnt/task_runtime/models/stable-audio-open-1.0/projection_model"
+    audio_pipeline_scheduler_config: "/mnt/task_runtime/models/stable-audio-open-1.0/scheduler"
+    audio_text_encoder: "/mnt/task_runtime/models/stable-audio-open-1.0/text_encoder"
+    audio_tokenizer: "/mnt/task_runtime/models/stable-audio-open-1.0/tokenizer"
+  video_model_path:
+    ckpt_dir_video_vae: "/mnt/task_runtime/models/Wan2.1-T2V-1.3B-Diffusers/vae"
+    ckpt_dir_video_diffusion: "/mnt/task_runtime/models/Wan2.1-T2V-1.3B-Diffusers/transformer"
+    video_pipeline_scheduler_config: "/mnt/task_runtime/models/Wan2.1-T2V-1.3B-Diffusers/scheduler"
+    video_text_encoder: "/mnt/task_runtime/models/Wan2.1-T2V-1.3B-Diffusers/text_encoder"
+    video_tokenizer: "/mnt/task_runtime/models/Wan2.1-T2V-1.3B-Diffusers/tokenizer"
+
+train_config:
+  deepspeed_config:
+    use_deepspeed: False
+    deepspeed_config_path: "/mnt/task_runtime/t2av/code_base/config/deepspeed.json"
+  lora_config:
+    use_lora: False
+    lora_rank: 128
+    lora_alpha: 64
+    lora_target_modules: ["to_q", "to_k", "to_v", "to_out.0"]
+  train_layer_config:
+    train_diff_layers: True
+    from_shallow: True
+    video_train_num: 5
+    audio_train_num: 5
+  lr_warmup_steps: 1000
+  optimizer:
+    lr: 5e-5
+    weight_decay: 1e-3
+    betas: [0.9, 0.95]
+  scheduler:
+    warmup_steps: 1000
+    max_steps: 200000
+    lr_min: 1e-6
+  unconditional_prob: 0.1
+  cache_config:
+    use_condition_embedding_cache: False
+    pre_process: False
+    condition_embedding_cache_path: "/mnt/task_runtime/t2av/code_base/emb_cache"
+  weight_dtype: torch.bfloat16
+  fusion_type: "bicross" # full_attn, bicross, v2a, a2v, add
+
+model_archi_config:
+  dual_dit_configs:
+      num_dual_dit_blocks: 4
+      num_input_channels_1: 1536
+      num_input_channels_2: 1536
+      num_qk_channels: 1536
+      num_v_channels: 1536
+      num_heads: 12
+      t_emb_dim_1: 1536
+      t_emb_dim_2: 1536
+  video_diffusion_configs:
+    video_bridge_points: [3, 7, 11, 15]
+    audio_bridge_points: [2, 5, 8, 11]
+
+sample_config:
+  sample_audio_length_s: 5.40
+  sample_audio_sampling_rate: 44100
+  sample_video_fps: 15
+  sample_video_num_frames: 81
+  sample_video_height: 480
+  sample_video_width: 834
+  num_inference_steps: 50
+  sample_video_guidance_scale: 6
+  num_samples_per_prompt: 1
+  inference_seed: 0
+  audio_guidance_scale: 7
+  video_save_path: "save_videos/no_training_single_caption"
+
+
+
+
+
+
+
+
+ 
