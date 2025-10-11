@@ -2,7 +2,7 @@
 
 > This repository is the anonymous code repository for the ICLR 2026 submission 'Taming Text-to-Sounding Video Generation via Advanced Modality Condition and Interaction'.
 
-![intro](assests/intro.png)
+![intro](assets/intro.png)
 
 Demo Page: https://bridgedit-t2sv.github.io/
 
